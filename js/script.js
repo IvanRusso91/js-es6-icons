@@ -126,16 +126,59 @@ const cardsArray = [
 		color: 'blue'
 	}
 ];
+const myReset= document.querySelector('.ir-container');
+let arraySelezionato = [];
 
-const option = document.querySelector ('option').value;
+stampaCards(cardsArray);
 
-
-
-cardsArray.forEach(element =>{
-  const {name, prefix, type, family,color} = element;
-  document.querySelector('.ir-container').innerHTML += 
-  `
-  <div class="card ${element.type}"><i class="fa-solid ${element.prefix + element.name}"> <p> ${element.name}</p></i></div>
-  `;
+const animalsArray = cardsArray.filter((animalCard) => {
+  return (animalCard.type === 'animal' );
+});
+const vegetableArray = cardsArray.filter((vegetableCard) => {
+  return (vegetableCard.type === 'vegetable' );
+});
+const userArray = cardsArray.filter((userbleCard) => {
+  return (userbleCard.type === 'user' );
 });
 
+
+const btn= document.getElementById('option');
+btn.addEventListener('change', function () {
+  switch (this.value) {
+    case '0':
+    arraySelezionato = cardsArray
+    break;
+
+    case '1':
+    arraySelezionato = animalsArray
+    break;
+
+    case '2':
+    arraySelezionato = vegetableArray
+    break;
+
+    case '3':
+    arraySelezionato = userArray
+    break;
+  
+    default:
+      break;
+   }
+   stampaCards(arraySelezionato);
+})
+
+function stampaCards(cardsArray) {
+  reset();
+  cardsArray.forEach(element =>{
+    const {name, prefix, type, family,color} = element;
+    document.querySelector('.ir-container').innerHTML += 
+    `
+    <div class="card ${element.type}"><i class="fa-solid ${element.prefix + element.name}"> <p> ${element.name}</p></i></div>
+    `;
+  });
+}
+
+function reset() {
+  myReset.innerHTML='';
+  
+}
