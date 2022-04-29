@@ -1,15 +1,51 @@
 
+/* HEADER */
+
+
+.title h1{
+  color: rgb(41, 177, 221);
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.col-sec{
+  
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(41, 177, 221);
+  color: white;
+  
+}
+
+.col-sec select{
+  width: 150px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+/* /HEADER */
+
+/* MAIN */
+
+main{
+  background-color: rgb(221, 221, 221);
+  height:calc(100vh -156px );
+}
+
 .ir-container{
   flex-wrap: wrap;
 }
 
 .card{
-  height: 200px;
+  height:calc(100vh / 6  );
   width: calc(100% / 4 - 30px);
   justify-content: center;
   align-items: center;
   margin: 15px;
   text-align: center; 
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px gray;
+  cursor: pointer;
 }
 
 .animal {
@@ -31,4 +67,34 @@
 .card p{
   margin-top: 20px;
   font-size:1.5rem;
+  color: black;
 }
+/* /MAIN */
+
+/* MQ */
+
+@media screen and (min-width: 100px) and (max-width: 779px){
+  
+  .card{ 
+    width: calc(100% /1 - 30px);
+  }
+}
+
+
+@media screen and (min-width: 780px) and (max-width:980px){
+
+  .card{ 
+    width: calc(100% /2 - 30px);
+  }
+ 
+}
+
+@media screen and (min-width: 981px) and (max-width:1200px){
+
+  .card{ 
+    width: calc(100% /3 - 30px);
+  }
+ 
+}
+
+/* /MQ */
