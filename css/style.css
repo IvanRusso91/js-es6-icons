@@ -1,0 +1,25 @@
+
+.ir-container{
+  flex-wrap: wrap;
+}
+
+.card{
+  height: 100px;
+  width: calc(100% / 4 - 30px);
+  justify-content: center;
+  align-items: center;
+  margin: 15px; 
+  color: white;
+}
+
+.animals{
+  background-color: orange;
+}
+
+.vegetable{
+  background-color: green;
+}
+
+.user{
+  background-color: blue;
+}
