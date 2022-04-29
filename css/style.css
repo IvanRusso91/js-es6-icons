@@ -4,23 +4,31 @@
 }
 
 .card{
-  height: 100px;
+  height: 200px;
   width: calc(100% / 4 - 30px);
   justify-content: center;
   align-items: center;
-  margin: 15px; 
-  color: white;
-  
+  margin: 15px;
+  text-align: center; 
 }
 
-.animal{
-  background-color: orange;
+.animal {
+  color: orange;
 }
 
-.vegetable{
-  background-color: green;
+.vegetable {
+  color: green;
 }
 
-.user{
-  background-color: blue;
+.user {
+  color: blue;
+}
+
+.card i{
+  font-size: 2rem;
+}
+
+.card p{
+  margin-top: 20px;
+  font-size:1.5rem;
 }

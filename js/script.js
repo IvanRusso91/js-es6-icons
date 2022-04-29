@@ -129,10 +129,13 @@ const cardsArray = [
 
 const option = document.querySelector ('option').value;
 
+
+
 cardsArray.forEach(element =>{
   const {name, prefix, type, family,color} = element;
   document.querySelector('.ir-container').innerHTML += 
   `
-  <div class="card ${element.type}"><i class="fa-solid ${element.prefix + element.name}"></i></div>
+  <div class="card ${element.type}"><i class="fa-solid ${element.prefix + element.name}"> <p> ${element.name}</p></i></div>
   `;
 });
+
