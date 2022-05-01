@@ -23,6 +23,10 @@
   cursor: pointer;
 }
 
+.ir-btn{
+  margin-left: 20px;
+}
+
 /* /HEADER */
 
 /* MAIN */
@@ -47,6 +51,7 @@ main{
   box-shadow: 5px 5px 15px gray;
   cursor: pointer;
 }
+
 
 .animal {
   color: orange;

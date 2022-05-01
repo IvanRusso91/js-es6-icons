@@ -116,7 +116,7 @@ const cardsArray = [
 		prefix: 'fa-',
 		type: 'user',
 		family: 'fas',
-		color: 'blue'
+		color2: 'blue'
 	},
 	{
 		name: 'user-secret',
@@ -126,18 +126,22 @@ const cardsArray = [
 		color: 'blue'
 	}
 ];
+
 const myReset= document.querySelector('.ir-container');
 let arraySelezionato = [];
 
-stampaCards(cardsArray);
+
 
 const animalsArray = cardsArray.filter((animalCard) => {
+	stampaCards(cardsArray,'orange');
   return (animalCard.type === 'animal' );
 });
 const vegetableArray = cardsArray.filter((vegetableCard) => {
+	stampaCards(cardsArray, 'green');
   return (vegetableCard.type === 'vegetable' );
 });
 const userArray = cardsArray.filter((userbleCard) => {
+	stampaCards(cardsArray,'blue');
   return (userbleCard.type === 'user' );
 });
 
@@ -164,21 +168,49 @@ btn.addEventListener('change', function () {
     default:
       break;
    }
-   stampaCards(arraySelezionato);
+   stampaCards(arraySelezionato,getRandomColor());
 })
 
-function stampaCards(cardsArray) {
+function stampaCards(cardsArray, elementColor) {
   reset();
   cardsArray.forEach(element =>{
     const {name, prefix, type, family,color} = element;
     document.querySelector('.ir-container').innerHTML += 
     `
-    <div class="card ${element.type}"><i class="fa-solid ${element.prefix + element.name}"> <p> ${element.name}</p></i></div>
+    <div class="card ${element.type}" style = "color : #${elementColor}"><i class="fa-solid ${element.prefix + element.name}"> <p> ${element.name}</p></i></div>
     `;
   });
 }
 
 function reset() {
-  myReset.innerHTML='';
-  
+  myReset.innerHTML='';  
+}
+//-------------------------------------------------------------------------------
+//modificare la struttura dati fornita e valorizzare la proprietà “color” in modo dinamico: generare in modo casuale un codice colore, sapendo che la notazione esadecimale è formata dal simbolo “#” seguito da 6 caratteri alfanumerici compresi tra 0 e 9 e A e F.
+
+//genera colore casuale
+//let color = randomColor() --> #AF0000
+//applica colore a carta
+// chiamata funzione --> applicaColor(color)
+
+
+function getRandomColor() {
+	let lettera1 = getRandomLetter() //--> A-F
+	let lettera2 =	getRandomLetter()
+	let colorCasual = lettera1+lettera2;
+	for(let i= 0 ; i < 4 ; i++){
+		colorCasual += String(getRandomNumber(0, 9));
+
+	}
+	return colorCasual
+}
+
+function getRandomLetter() {
+	let letter=['A','B','C','D','E','F'];
+  let randomIndex = getRandomNumber(0, letter.length - 1 );
+	return  letter[randomIndex];
+}
+
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
